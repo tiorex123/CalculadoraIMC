@@ -3,33 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de IMC</title>
+    <title>Mass Evaluation System - P3R // Tartarus Diagnostic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,700;0,800;0,900;1,900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Calculadora de IMC</h1>
-        <p class="subtitle">Descubra seu Índice de Massa Corporal</p>
+    <header class="top-nav">
+        <div class="system-title">
+            <span>MASS EVALUATION SYSTEM</span>
+            <small>P3R // REPOSITORY TARTARUS BIO-DATA - VER 3.0</small>
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="active">BRIEFING</a>
+            <a href="#">TACTICS MANIFEST</a>
+            <a href="#">NETWORK</a>
+        </nav>
+        <div class="header-status">
+            <span class="clock">00:00:00</span>
+            <span class="dark-hour-badge">DARK HOUR ACTIVE</span>
+        </div>
+    </header>
 
-        <div class="form-group">
-            <label for="peso">Peso (kg):</label>
-            <input type="number" id="peso" step="0.1" placeholder="Ex: 70" required>
+    <main class="main-container">
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="subtitle-tag">TARTARUS PHYSICAL DIAGNOSTIC ENGINE // PHASE 04 //</div>
+            <h1 class="hero-title">MASS EVALUATION</h1>
+            <p class="hero-desc">Protocolo biométrico para cálculo do IMC (Índice de Massa Corporal). Calibre os parâmetros vitais do operador para incursões operacionais na Dark Hour.</p>
+        </section>
+
+        <!-- PRE-CONFIGURED TELEMETRY BAR -->
+        <div class="telemetry-bar">
+            <span>TELEMETRIA PRÉ-CONFIGURADA (S.E.E.S.):</span>
+            <button class="preset-btn" data-peso="56" data-altura="1.70" data-genero="masculino">MAKOTO (170cm/56kg)</button>
+            <button class="preset-btn" data-peso="65" data-altura="1.75" data-genero="masculino">AKIHIKO (175cm/65kg)</button>
+            <button class="preset-btn" data-peso="48" data-altura="1.62" data-genero="feminino">YUKARI (162cm/48kg)</button>
         </div>
 
-        <div class="form-group">
-            <label for="altura">Altura (m):</label>
-            <input type="number" id="altura" step="0.01" placeholder="Ex: 1.75" required>
-        </div>
+        <div class="dashboard-grid">
+            <!-- INPUT PANEL -->
+            <section class="panel input-panel">
+                <div class="panel-header">
+                    <span>⚡ INPUT BIO-TELEMETRY</span>
+                </div>
 
-        <button id="btn-calcular">Calcular</button>
+                <div class="form-group">
+                    <label>01 // GÊNERO BIOLÓGICO</label>
+                    <div class="radio-group" id="genero-group">
+                        <button type="button" class="radio-btn active" data-value="masculino">MASCULINO</button>
+                        <button type="button" class="radio-btn" data-value="feminino">FEMININO</button>
+                        <button type="button" class="radio-btn" data-value="outro">OUTRO</button>
+                    </div>
+                </div>
 
-        <div id="resultado" class="hidden">
-            <h2>Resultado</h2>
-            <p id="valor-imc"></p>
-            <p id="classificacao"></p>
+                <div class="form-group">
+                    <div class="label-row">
+                        <label for="altura">02 // ESTATURA (ALTURA)</label>
+                        <span class="radar-tag">EVOKER-RADAR</span>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="number" id="altura" step="0.01" placeholder="170" value="1.70">
+                        <span class="unit-badge">M</span>
+                    </div>
+                    <div class="range-hint">MÍN: 90 cm &nbsp;&nbsp;&nbsp;&nbsp; MÁX: 250 cm</div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label-row">
+                        <label for="peso">03 // PESO CORPÓREO</label>
+                        <span class="dynamics-tag">MASS DYNAMICS</span>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="number" id="peso" step="0.1" placeholder="56,0" value="56.0">
+                        <span class="unit-badge cyan">KG</span>
+                    </div>
+                    <div class="range-hint">MÍN: 30 kg &nbsp;&nbsp;&nbsp;&nbsp; MÁX: 300 kg</div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="idade">04 // IDADE (ANOS)</label>
+                        <input type="number" id="idade" value="17">
+                    </div>
+                    <div class="form-group half">
+                        <label for="pratica">05 // PRÁTICA TÁTICA</label>
+                        <select id="pratica">
+                            <option>Moderado (Exploração)</option>
+                            <option>Intenso (Frente de Batalha)</option>
+                            <option>Leve (Retaguarda)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="btn-execute" class="execute-btn">
+                    <span>⚡ EXECUTE ANALYSIS »</span>
+                </button>
+            </section>
+
+            <!-- OUTPUT PANEL -->
+            <section class="panel output-panel">
+                <div class="panel-header warning-header">
+                    <span>📊 ANALYSIS OUTCOME // TARTARUS METRICS</span>
+                </div>
+
+                <div class="metric-status-bar">
+                    <span class="metric-title">◆ METRIC TELEMETRY: REAL-TIME IMC</span>
+                    <span class="approved-badge">✓ ALL-OUT ATTACK APPROVED</span>
+                </div>
+
+                <div class="score-container">
+                    <div class="score-left">
+                        <span class="score-label">SCORE VITAL // IMC COEFICIENTE</span>
+                        <div class="score-value" id="score-imc">19.38 <small>kg/m²</small></div>
+                    </div>
+                    <div class="score-right" id="status-card">
+                        <span class="classification-label">CLASSIFICAÇÃO OPERACIONAL</span>
+                        <div class="classification-text" id="classificacao-txt">OPTIMAL STATUS (PESO NORMAL)</div>
+                        <span class="ideal-range" id="faixa-ideal">Faixa ideal sugerida: 53.5 kg – 72.0 kg</span>
+                    </div>
+                </div>
+
+                <div class="meter-track-container">
+                    <div class="meter-info-row">
+                        <span>🛡️ METRO TÁTICO HP/SP DA MASSA CORPÓREA</span>
+                        <span id="ideal-tag-mini">19.38 // FISICO IDEAL</span>
+                    </div>
+                    <div class="segmented-bar">
+                        <div class="bar-segment" style="flex: 3.5;" title="Baixo"></div>
+                        <div class="bar-segment active-seg" style="flex: 6.4;" title="Normal"></div>
+                        <div class="bar-segment" style="flex: 5.1;" title="Sobrepeso"></div>
+                        <div class="bar-segment" style="flex: 10;" title="Obesidade"></div>
+                    </div>
+                    <div class="meter-labels">
+                        <span>15.0</span>
+                        <span class="hl-num">18.5</span>
+                        <span class="hl-num">25.0</span>
+                        <span class="hl-num">30.0</span>
+                        <span>40.0+</span>
+                    </div>
+                </div>
+
+                <!-- VELVET ROOM ADVICE -->
+                <div class="velvet-advice-box">
+                    <div class="velvet-title">
+                        <span>✨ VELVET ROOM ADVICE // IGOR & ELIZABETH</span>
+                        <small>S.E.E.S. READINESS</small>
+                    </div>
+                    <div class="advice-cards">
+                        <div class="advice-card">
+                            <span class="advice-icon">💧</span>
+                            <strong>HIDRATAÇÃO</strong>
+                            <p id="advice-agua">Meta diária: 1.96L de água para resistir ao estresse da Dark Hour.</p>
+                        </div>
+                        <div class="advice-card">
+                            <span class="advice-icon">🌙</span>
+                            <strong>CICLO DE SONO</strong>
+                            <p>7 a 8 horas recomendadas. Não adie o repouso antes da meia-noite cronometrada.</p>
+                        </div>
+                        <div class="advice-card">
+                            <span class="advice-icon">⚔️</span>
+                            <strong>CARDIO TARTARUS</strong>
+                            <p>Excelente equilíbrio. Treinos de agilidade com espada ou arco mantêm a sinergia com sua Persona.</p>
+                        </div>
+                    </div>
+                    <div class="velvet-footer">
+                        <small>*O IMC é um indicador geral de massa corpórea e não substitui avaliação clínica de composição corpórea.</small>
+                        <span class="status-sync">STATUS: SYNCHRONIZED</span>
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
+    </main>
+
+    <footer class="system-footer">
+        <span>SQUAD: SPECIALIZED EXTRACURRICULAR EXECUTION SQUAD</span>
+        <span>// EVOKER FREQ: 98.4 MHz</span>
+        <span>// TARGET: ARCANUM DEATH</span>
+        <div class="footer-sub">
+            <span>◆ SPECIALIZED EXTRACURRICULAR EXECUTION SQUAD</span>
+            <span>© 2024 ATLUS // SEGA. MASS EVALUATION SYSTEM VER 3.0</span>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
